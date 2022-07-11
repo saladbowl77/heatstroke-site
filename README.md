@@ -1,4 +1,11 @@
-# create-svelte
+# heatstroke-site
+熱中症を予防のために情報を表示するサイトです。
+
+Svelte Kit + Chartjs を使用しています。
+
+お気軽に機能追加の提案やIssueやPull requestsお送りいただけると幸いです。
+
+## create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
