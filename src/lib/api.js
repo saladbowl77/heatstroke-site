@@ -1,8 +1,7 @@
-let baseUrl = "http://0.0.0.0:3000"
-
-export const getData = async function(month, pref) {
+export const getData = async function(host, month, pref) {
     if (pref != 'undefined'){
-        const res = await (await fetch(`http://0.0.0.0:3000/data/05/${pref}.csv`)).text();
+        console.log(host)
+        const res = await (await fetch(`${host}/data/${month}/${pref}.csv`)).text();
         const arrayRes = res.split('\n')
         let resData = [];
         for (const dateData of arrayRes){

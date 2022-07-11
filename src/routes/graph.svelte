@@ -40,10 +40,13 @@
 
 <script>
     import Chart from 'chart.js/auto';
-    import jsonData from '$lib/data/data.json'
     import { onMount } from 'svelte'
 
     import { getData } from '$lib/api.js'
+
+
+    import { page } from '$app/stores';
+    const host = $page.url.protocol + "//" + $page.url.host;
 
     let selectPref;
     let prefId;
@@ -96,8 +99,7 @@
     
 
     function drawAgeGraph() {
-        console.log(prefId)
-        getData(monthId, prefId)
+        getData(host, monthId, prefId)
             .then(value => {
                 let allArray = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
                 sumArr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
@@ -105,7 +107,6 @@
                 for (const dayArr of value[0]){
                     let dataCount = 0;
                     for (const dayDataCount of dayArr) {
-                        if (dataCount == 1) console.log(dayDataCount);
                         allArray[dataCount].push(dayDataCount);
                         sumArr[dataCount] = (Number(sumArr[dataCount]) + Number(dayDataCount));
                         dataCount++;
@@ -237,7 +238,7 @@
 <section id="search">
     <p>データ選択</p>
     <select bind:value={ selectMonth }>
-        <option value="5">5月</option>
+        <option value="05">5月</option>
     </select>
     /
     <select bind:value={ selectPref }>
