@@ -1,6 +1,6 @@
 import openpyxl
 
-wb = openpyxl.load_workbook('/Users/taiyo/Desktop/Project/tanpatu/heatstroke-site/python/heatstroke003_data_r4.xlsx')
+wb = openpyxl.load_workbook('./heatstroke003_data_r4.xlsx')
 sheet = wb['2022_05']
 
 day = 31
