@@ -2,8 +2,6 @@
     section {
         border: 3px solid #3abe86;
         padding: 10px;
-    }
-    #search {
         margin: 10px 0;
     }
     #chartWrap {
