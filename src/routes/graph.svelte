@@ -1,5 +1,5 @@
 <script>
-    import Chart from "chart.js/auto/auto.js";
+    import Chart from "../../node_modules/chart.js/auto/auto.js";
     import { onMount } from "svelte";
 
     import { getData } from "$lib/api.js";
