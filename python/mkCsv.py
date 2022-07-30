@@ -1,6 +1,6 @@
 import openpyxl
 
-wb = openpyxl.load_workbook('./heatstroke003_data_r4.xlsx')
+wb = openpyxl.load_workbook('./heatstroke003_data_r4_06.xlsx')
 sheet = wb['2022_05']
 
 day = 31
@@ -16,29 +16,30 @@ for rowNum in range(47 * day):
     pref = sheet.cell(row=rowNum + 2,column=2).value
     day = sheet.cell(row=rowNum + 2,column=1).value
 
-    dataArr[int(pref - 1)].append([
-        day.strftime('%Y/%m/%d'),
-        sheet.cell(row=rowNum + 2,column=3).value,
-        sheet.cell(row=rowNum + 2,column=4).value,
-        sheet.cell(row=rowNum + 2,column=5).value,
-        sheet.cell(row=rowNum + 2,column=6).value,
-        sheet.cell(row=rowNum + 2,column=7).value,
-        sheet.cell(row=rowNum + 2,column=8).value,
-        sheet.cell(row=rowNum + 2,column=9).value,
-        sheet.cell(row=rowNum + 2,column=10).value,
-        sheet.cell(row=rowNum + 2,column=11).value,
-        sheet.cell(row=rowNum + 2,column=12).value,
-        sheet.cell(row=rowNum + 2,column=13).value,
-        sheet.cell(row=rowNum + 2,column=14).value,
-        sheet.cell(row=rowNum + 2,column=15).value,
-        sheet.cell(row=rowNum + 2,column=16).value,
-        sheet.cell(row=rowNum + 2,column=17).value,
-        sheet.cell(row=rowNum + 2,column=18).value,
-        sheet.cell(row=rowNum + 2,column=19).value,
-        sheet.cell(row=rowNum + 2,column=20).value,
-        sheet.cell(row=rowNum + 2,column=21).value,
-        sheet.cell(row=rowNum + 2,column=22).value
-    ])
+    if pref != None:
+        dataArr[int(pref - 1)].append([
+            day.strftime('%Y/%m/%d'),
+            sheet.cell(row=rowNum + 2,column=3).value,
+            sheet.cell(row=rowNum + 2,column=4).value,
+            sheet.cell(row=rowNum + 2,column=5).value,
+            sheet.cell(row=rowNum + 2,column=6).value,
+            sheet.cell(row=rowNum + 2,column=7).value,
+            sheet.cell(row=rowNum + 2,column=8).value,
+            sheet.cell(row=rowNum + 2,column=9).value,
+            sheet.cell(row=rowNum + 2,column=10).value,
+            sheet.cell(row=rowNum + 2,column=11).value,
+            sheet.cell(row=rowNum + 2,column=12).value,
+            sheet.cell(row=rowNum + 2,column=13).value,
+            sheet.cell(row=rowNum + 2,column=14).value,
+            sheet.cell(row=rowNum + 2,column=15).value,
+            sheet.cell(row=rowNum + 2,column=16).value,
+            sheet.cell(row=rowNum + 2,column=17).value,
+            sheet.cell(row=rowNum + 2,column=18).value,
+            sheet.cell(row=rowNum + 2,column=19).value,
+            sheet.cell(row=rowNum + 2,column=20).value,
+            sheet.cell(row=rowNum + 2,column=21).value,
+            sheet.cell(row=rowNum + 2,column=22).value
+        ])
 
 import pandas as pd
 
@@ -96,5 +97,5 @@ prefNumber = {
 prefCount=1
 for dataPref in dataArr:
     df = pd.DataFrame(dataPref)
-    df.to_csv(f'../src/lib/data/05/{prefCount}.csv', header=False, index=False)
+    df.to_csv(f'../static/data/06/{prefCount}.csv', header=False, index=False)
     prefCount += 1

@@ -1,5 +1,6 @@
 <script>
-    import Chart from "../../node_modules/chart.js/auto/auto.js";
+    //import Chart from '../../node_modules/chart.js/auto/auto.js';
+    import Chart from 'chart.js/auto';
     import { onMount } from "svelte";
 
     import { getData } from "$lib/api.js";
@@ -261,7 +262,8 @@
 <section id="search">
     <p>データ選択</p>
     <select bind:value={selectedMonth}>
-        <option value={5}>5月</option>
+        <option value={"05"}>5月</option>
+        <option value={"06"}>6月</option>
     </select>
     /
     <select bind:value={selectedPrefId}>
